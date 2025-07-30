@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="h-full bg-gray-100">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{-- @vite('resources/css/app.css') --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="icon" type="image/x-icon" href="/img/kkj.png">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    {{-- DROPDOWN ITEM --}}
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- jQuery (required by Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    {{-- END DROPDOWN ITEM --}}
+
+</head>
+
+<body class="h-full">
+    <div class="min-h-full ">
+        <div >
+
+
+            <x-navbar></x-navbar>
+            {{-- <x-header>{{ $titleHeader }}</x-header> --}}
+            {{-- @if (Request::is('news'))
+            <x-search></x-search>
+        @endif --}}
+            <main style="background-image: url('{{ asset('/img/bg-kkj-salesorder.jpg') }}')" class="bg-cover bg-center bg-fixed min-h-screen">
+                <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+                    {{ $slot }}
+                    {{-- {{ $slotSearch }} --}}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+</body>
+
+</html>
