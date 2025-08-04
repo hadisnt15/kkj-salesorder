@@ -104,11 +104,15 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $cst = Customer::findOrFail($id);
+        $response = Http::get('https://api.goapi.io/regional/provinsi?api_key=ed454b81-676b-5805-dc4c-75b9c0a9');
+
+        $state = $response->json()['data'] ?? [];
         // dd($cst->CstCode);
         return view('customer.customer_edit', [
             'title' => 'KKJSO - Customer Edit',
             'titleHeader' => 'Customer Edit',
-            'cst' => $cst
+            'cst' => $cst,
+            'state' => $state
         ]);
     }
 
@@ -146,7 +150,7 @@ class CustomerController extends Controller
      */
     public function destroy(string $id)
     {
-        $cst =  Customer::findOrFail($id);
+        $cst = Customer::findOrFail($id);
         $cst->delete();
         return redirect('/customer')->with('success', 'Customer Deleted!');
     }

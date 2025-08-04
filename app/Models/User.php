@@ -3,9 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -21,7 +24,26 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
+        'status',
+        'phone',
     ];
+
+    public function employee(): HasOne
+    {
+        return $this->hasOne(Employee::class, 'id', localKey: 'EmpUsrId');
+    }
+
+    public function scopeFilter(Builder $query, array $filters)   
+    {
+        $query->when(
+            $filters['search'] ?? false,
+            fn ($query, $search) =>
+            $query->where('name', 'like', '%' . $search . '%')
+                ->orWhere('email', 'like', '%' . $search . '%')
+                ->orWhere('level', 'like', '%' . $search . '%')
+        );
+    }
 
     /**
      * The attributes that should be hidden for serialization.

@@ -6,12 +6,12 @@
 
 
     <div class="border border-zinc-600 py-2 px-2 rounded-md sm:max-w-xl mx-auto">
-        <nav class="flex mb-4 px-5 py-3 text-gray-700 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
+        <nav class="flex mb-4 px-5 py-3 border rounded-lg bg-red-700 border-red-800 opacity-75"
             aria-label="Breadcrumb" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                 <li class="inline-flex items-center">
                     <a href="/customer"
-                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-600 dark:hover:text-gray-600">
+                        class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-red-400">
                         <i class="ri-account-circle-2-fill me-1"></i>Customer
                     </a>
                 </li>
@@ -22,7 +22,7 @@
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="m1 9 4-4-4-4" />
                         </svg>
-                        <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"><i
+                        <span class="ms-1 text-sm font-medium text-white md:ms-2"><i
                                 class="ri-edit-box-fill me-1"></i>Update Customer</span>
                     </div>
                 </li>
@@ -35,7 +35,7 @@
                         Code</label>
                     <input type="text" id="CstCode" name="CstCode" value="{{ old('CstCode', $cst->CstCode) }}"
                         autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-400 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="opacity-75 bg-red-300 border-red-600 placeholder-red-700 text-red-950 focus:ring-red-900 focus:border-red-900 border text-sm rounded-lg w-full p-2.5"
                         placeholder="Customer Code" required disabled />
                     @error('CstCode')
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}
@@ -47,7 +47,7 @@
                         Name</label>
                     <input type="text" id="CstName" name="CstName" value="{{ old('CstName', $cst->CstName) }}"
                         autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       class="opacity-75 bg-red-300 border-red-600 placeholder-red-700 text-red-950 focus:ring-red-900 focus:border-red-900 border text-sm rounded-lg w-full p-2.5"
                         placeholder="Customer Name" required />
                     @error('CstName')
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}
@@ -61,7 +61,7 @@
                         Contact Person</label>
                     <input type="text" id="CstPerson" name="CstPerson"
                         value="{{ old('CstPerson', $cst->CstPerson) }}" autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        class="opacity-75 bg-red-300 border-red-600 placeholder-red-700 text-red-950 focus:ring-red-900 focus:border-red-900 border text-sm rounded-lg w-full p-2.5"
                         placeholder="Customer Contact Person" required />
                     @error('CstPerson')
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}
@@ -73,7 +73,7 @@
                         Phone Number</label>
                     <input type="number" id="CstPhoneNum" name="CstPhoneNum"
                         value="{{ old('CstPhoneNum', $cst->CstPhoneNum) }}" autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                       class="opacity-75 bg-red-300 border-red-600 placeholder-red-700 text-red-950 focus:ring-red-900 focus:border-red-900 border text-sm rounded-lg w-full p-2.5"
                         placeholder="Customer Phone Number" required />
                     @error('CstPhoneNum')
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
@@ -83,35 +83,40 @@
             </div>
             <div class="grid md:grid-cols-2 md:gap-6">
                 <div class="mb-2">
-                    <label for="CstState" class="mb-2 text-sm font-medium text-gray-900 dark:text-black">Customer
+                    <label for="CstStateId" class="mb-2 text-sm font-medium text-red-950">Customer
                         State</label>
-                    <input type="text" id="CstState" name="CstState" value="{{ old('CstState', $cst->CstState) }}"
-                        autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Customer State" required />
+                    <select id="CstStateId" name="CstStateId"
+                        class="opacity-75 bg-red-300 border-red-600 placeholder-red-700 border text-sm rounded-lg text-red-700 focus:ring-red-900 focus:border-red-900 block w-full p-2.5 ">
+                        <option selected value="{{ old('CstState', $cst->CstState) }}">{{ old('CstState', $cst->CstState) }}</option>
+                        @foreach ($state as $stt)
+                            <option value="{{ $stt['id'] }}" data-nama="{{ $stt['name'] }}">{{ $stt['name'] }}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" name="CstState" id="CstState" value="{{ old('CstState', $cst->CstState) }}">
                     @error('CstState')
                         <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
                                 class="font-medium">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="mb-2">
-                    <label for="CstCity" class="mb-2 text-sm font-medium text-gray-900 dark:text-black">Customer
+                    <label for="CstCity" class="mb-2 text-sm font-medium text-red-950">Customer
                         City</label>
-                    <input type="text" id="CstCity" name="CstCity" value="{{ old('CstCity', $cst->CstCity) }}"
-                        autocomplete="off"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Customer City" required />
-                    @error('CstCity')
-                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
-                                class="font-medium">{{ $message }}</p>
-                    @enderror
+                    <select id="CstCity" name="CstCity"
+                        class="opacity-75 bg-red-300 border-red-600 placeholder-red-700 border text-sm rounded-lg text-red-700 focus:ring-red-900 focus:border-red-900 block w-full p-2.5 ">
+                        <option selected value="{{ old('CstCity', $cst->CstCity) }}">{{ old('CstCity', $cst->CstCity) }}</option>
+
+                        @error('CstCity')
+                            <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                    class="font-medium">{{ $message }}</p>
+                        @enderror
+                    </select>
                 </div>
             </div>
             <div>
                 <label for="CstAddress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Customer
                     Address</label>
                 <textarea id="CstAddress" name="CstAddress" rows="3" value="" autocomplete="off"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    class="opacity-75 block p-2.5 w-full text-sm rounded-lg border bg-red-300 border-red-600 placeholder-red-700 text-red-700 focus:ring-red-900 focus:border-red-900 "
                     placeholder="Customer Address">{{ old('CstAddress', $cst->CstAddress) }}</textarea>
                 @error('CstAddress')
                     <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span class="font-medium">{{ $message }}
@@ -120,9 +125,29 @@
             </div>
 
             <button type="submit"
-                class="mt-3 w-full text-white bg-gray-950 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-950 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Update
+                class="mt-3 w-full opacity-75 bg-red-900 hover:bg-red-700 font-medium text-white rounded-lg text-sm px-5 py-2.5 text-center">Update
                 Customer</button>
         </form>
     </div>
 
 </x-layout>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $('#CstStateId').on('change', function() {
+        const stateId = $(this).val();
+        const stateName = $(this).find(':selected').data('nama');
+
+        $('#CstState').val(stateName);  
+        $('#CstCity').html('<option value="">Loading...</option>');
+        if (stateId) {
+            $.get('/get-cities/' + stateId, function(data) {
+                $('#CstCity').empty().append('<option value="">City</option>');
+                $.each(data, function(i, city) {
+                    $('#CstCity').append(`<option value="${city.name}">${city.name}</option>`);
+                });
+            });
+        } else {
+            $('#CstCity').html('<option value="">City</option>');
+        }
+    });
+</script>

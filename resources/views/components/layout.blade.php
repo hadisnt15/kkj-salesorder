@@ -11,6 +11,7 @@
     <link rel="icon" type="image/x-icon" href="/img/kkj.png">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com">
 
     {{-- DROPDOWN ITEM --}}
     <!-- Select2 CSS -->
@@ -35,7 +36,8 @@
             {{-- @if (Request::is('news'))
             <x-search></x-search>
         @endif --}}
-            <main style="background-image: url('{{ asset('/img/bg-kkj-salesorder.jpg') }}')" class="bg-cover bg-center bg-fixed min-h-screen">
+            <main 
+            class="md:bg-[url('/img/bg-kkj-salesorder2.jpg')] bg-[url('/img/bg-kkj-salesorder2-mobile.jpg')] bg-cover bg-center bg-fixed min-h-screen">
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     {{ $slot }}
                     {{-- {{ $slotSearch }} --}}

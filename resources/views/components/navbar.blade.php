@@ -1,10 +1,10 @@
-<nav class="bg-gray-800" x-data="{ isOpen: false }">
+<nav class="bg-red-900" x-data="{ isOpen: false }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="hidden md:block">
             <div class="grid grid-cols-[1fr_2fr_1fr] h-16 items-center">
                 <div class="hidden md:block">
                     <div class="shrink-0 flex">
-                        <img class="size-8 bg-gray-400 rounded-full w-10 h-10 p-1" src="/img/kkj.png" alt="Your Company" />
+                        <img class="size-8 bg-red-100 rounded-full w-10 h-10 p-1" src="/img/kkj.png" alt="Your Company" />
                         <div class="rounded-md px-3 py-2 text-sm font-medium text-white">
                             PT. KAPUAS KENCANA JAYA
                         </div>
@@ -18,11 +18,11 @@
                         <x-nav-link href="/order" :active="request()->is('order')"><i class="ri-bill-fill"></i>Order</x-nav-link>
                         <x-nav-link href="/item" :active="request()->is('item')"><i class="ri-settings-4-fill"></i>Item</x-nav-link>
                         <x-nav-link href="/customer"
-                            class="{{ Route::is('customer', 'customer.create', 'customer.edit', 'customer.delete') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">
+                            class="{{ Route::is('customer', 'customer.create', 'customer.edit', 'customer.delete') ? 'bg-red-500 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium">
                             <i class="ri-account-circle-2-fill"></i>Customer
                         </x-nav-link>
-                        <x-nav-link href="/sales" :active="request()->is('sales')"><i class="ri-group-2-fill"></i>Sales</x-nav-link>
-                        <x-nav-link href="/user" :active="request()->is('user')"><i
+                        <x-nav-link href="/employee" class="{{ Route::is('employee', 'employee.create', 'employee.edit', 'employee.delete') ? 'bg-red-500 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium"><i class="ri-group-2-fill"></i>Employee</x-nav-link>
+                        <x-nav-link href="/user" class="{{ Route::is('user', 'user.create', 'user.edit', 'user.delete') ? 'bg-red-500 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium"><i
                                 class="ri-user-follow-fill"></i>User</x-nav-link>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         </div>
                     @endauth --}}
                         <div class="rounded-md px-3 py-2 text-sm font-medium text-white">
-                            Halo, anda belum login!
+                            Halo, Hadi Santoso
                         </div>
                         <!-- Profile dropdown -->
                         <div class="relative ml-3">
@@ -49,7 +49,7 @@
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
                                     <img class="size-8 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                        src="/img/hadi.png"
                                         alt="" />
                                 </button>
                             </div>
@@ -108,7 +108,7 @@
                 </div>
                 <div class="ml-auto">
                     <button @click="isOpen = !isOpen" type="button"
-                        class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+                        class="relative inline-flex items-center justify-center rounded-md bg-red-700 p-2 text-white hover:bg-red-600 hover:text-white focus:ring-2"
                         aria-controls="mobile-menu" aria-expanded="false">
                         <span class="absolute -inset-0.5"></span>
                         <span class="sr-only">Open main menu</span>
@@ -137,19 +137,19 @@
             <div class="flex justify-between space-y-1 px-2 pt-2 pb-3 sm:px-3">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <x-nav-link href="/"
-                    class="{{ Route::is('/') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Dashboard</x-nav-link>
+                    class="{{ Route::is('/') ? 'bg-red-600 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-1 py-3 text-sm font-medium">Dashboard</x-nav-link>
                 <x-nav-link href="/order"
-                    class="{{ Route::is('/order') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Order</x-nav-link>
+                    class="{{ Route::is('/order') ? 'bg-red-600 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Order</x-nav-link>
                 <x-nav-link href="/item"
-                    class="{{ Route::is('item') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Item</x-nav-link>
+                    class="{{ Route::is('item') ? 'bg-red-600 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Item</x-nav-link>
                 <x-nav-link href="/customer"
-                    class="{{ Route::is('customer', 'customer.create', 'customer.edit', 'customer.delete') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">
+                    class="{{ Route::is('customer', 'customer.create', 'customer.edit', 'customer.delete') ? 'bg-red-600 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">
                     Customer
                 </x-nav-link>
-                <x-nav-link href="/sales"
-                    class="{{ Route::is('sales') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Sales</x-nav-link>
+                <x-nav-link href="/employee"
+                    class="{{ Route::is('employee', 'employee.create', 'employee.edit', 'employee.delete') ? 'bg-red-600 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">Employee</x-nav-link>
                 <x-nav-link href="/user"
-                    class="{{ Route::is('user') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">User</x-nav-link>
+                    class="{{ Route::is('user', 'user.create', 'user.edit', 'user.delete') ? 'bg-red-600 text-white' : 'text-white hover:bg-red-700 hover:text-white' }} rounded-md px-1 py-2 text-sm font-medium">User</x-nav-link>
             </div>
             {{-- <div class="grid grid-rows-2">
                 <div class="grid grid-cols-3">
@@ -166,7 +166,7 @@
                         <i class="ri-account-circle-2-fill"></i>Customer
                     </x-nav-link>
                     <x-nav-link href="/sales"
-                        class="{{ Route::is('sales') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium mx-auto"><i
+                        class="{{ Route::is('employee') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium mx-auto"><i
                             class="ri-group-2-fill"></i>Sales</x-nav-link>
                     <x-nav-link href="/user"
                         class="{{ Route::is('user') ? 'bg-gray-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md px-3 py-2 text-sm font-medium mx-auto"><i
@@ -174,36 +174,26 @@
                 </div>
             </div> --}}
         </div>
-        <div class="border-t border-gray-700 pt-4 pb-3">
+        <div class="border-t border-red-200 pt-4 pb-3">
             <div class="flex items-center px-5">
                 <div class="shrink-0">
                     <img class="size-10 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="/img/hadi.png"
                         alt="" />
                 </div>
                 <div class="ml-3">
-                    <div class="text-base/5 font-medium text-white">Tom Cook</div>
-                    <div class="text-sm font-medium text-gray-400">tom@example.com</div>
+                    <div class="text-base/5 font-medium text-white">Hadi Santoso</div>
+                    <div class="text-sm font-medium text-white">hadisnt15@gmail.com</div>
                 </div>
-                <button type="button"
-                    class="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-                    <span class="absolute -inset-1.5"></span>
-                    <span class="sr-only">View notifications</span>
-                    <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                        aria-hidden="true" data-slot="icon">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-                    </svg>
-                </button>
             </div>
             <div class="mt-3 space-y-1 px-2">
                 <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your
+                    class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white">Your
                     Profile</a>
                 <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
+                    class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white">Settings</a>
                 <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign
+                    class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white">Sign
                     out</a>
             </div>
         </div>
